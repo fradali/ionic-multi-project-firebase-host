@@ -2,8 +2,8 @@
 
 # 1- Create a workspace
 
-ng new devdacticMulti --createApplication=false
-cd ./devdacticMulti
+ng new yourOwndirectory --createApplication=false
+cd ./yourOwndirectory
  
 # 2- Create our projects directory
 
