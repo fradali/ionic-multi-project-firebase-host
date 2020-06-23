@@ -1,28 +1,92 @@
-# Test
+# How to create and config project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+# 1- Create a workspace
 
-## Development server
+ng new devdacticMulti --createApplication=false
+cd ./devdacticMulti
+ 
+# 2- Create our projects directory
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+mkdir projects
 
-## Code scaffolding
+# 3- Add ionic.config.json to root Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ fill it with : 
+  {
+  "projects": {}
+  } 
 
-## Build
+# 4- Create two ionic projects
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+cd ./projects
+ionic start appOne blank
+ionic start appTwo tabs
 
-## Running unit tests
+# 5- Avoid Configuration problems 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Now you have a projects folder with 2 Ionic projects, a good start so far. If you were to follow the official guide, it wouldn’t work yet as the projects would not be found.
 
-## Running end-to-end tests
+The reason is that the automatically generated angular.json file contains a generic app keyword, and we have to change it to match the name of our projects.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+We need to change every angular.json :
 
-## Further help
+  -- "defaultProject": "appOne"
+  -- "projects": {  ->"appOne": {
+  -- replace every app: by your name  which should be another 12 occurrences in the whole file.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# ionic-multi-project-firebase-host
+  A final look at the root ionic.config.json shows that the apps were added:
+
+{
+  "projects": {
+    "appOne": {
+      "name": "appOne",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects/appOne"
+    },
+    "appTwo": {
+      "name": "app",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects/appTwo"
+    }
+  }
+}
+
+# 6- Creating our Pwa 
+Follow this link : https://ionicframework.com/docs/angular/pwa for every project (DO NOT DEPLOY TO FIREBASE)
+
+# 7- Multi hosting Firebase
+
+ 1. install firebse tools : npm install -g firebase-tools
+ 2. cd root project
+ 3. run this cmd : firebase init hosting
+ 4. Now we just need to update the firebase.json hosting config. Each site has a target that points to the public deployable code in the www folder. ( Array of hosting object : duplicate the example in this url https://ionicframework.com/docs/angular/pwa#firebase and set a target for each application)
+ 5. Define Hosting Targets : 
+ For this just run this cmd : firebase target:apply hosting 'appName' 'Name in firebase' (run it X times for X project)
+
+# Firebase Deployment
+
+Our configuration is complete. We can deploy all sites together with:
+
+firebase deploy --only hosting
+Or deploy a single site based on the target name:
+
+firebase serve --only hosting:appOne
+
+# More infos && useful links
+
+This Tutorial is base on two other ones, you can check them :
+
+- https://devdactic.com/ionic-multi-app-shared-library/
+- https://fireship.io/lessons/deploy-multiple-sites-to-firebase-hosting/
+
+Other links you may need:
+- https://ionicframework.com/docs/angular/pwa#firebase
+- https://ionicframework.com/docs/cli/configuration#multi-app-projects
+- https://www.youtube.com/watch?v=mlCdfAvny6o
+- https://www.youtube.com/watch?v=NrkFBmBFA6k
+
+
+
+
