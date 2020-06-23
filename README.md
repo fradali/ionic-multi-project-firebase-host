@@ -12,10 +12,12 @@ mkdir projects
 # 3- Add ionic.config.json to root Project
 
  fill it with : 
-  {
+ ```
+{
   "projects": {}
   } 
-
+```
+  
 # 4- Create two ionic projects
 
 cd ./projects
@@ -35,7 +37,8 @@ We need to change every angular.json :
   -- replace every app: by your name  which should be another 12 occurrences in the whole file.
 
   A final look at the root ionic.config.json shows that the apps were added:
-
+  
+ ```
 {
   "projects": {
     "appOne": {
@@ -52,6 +55,7 @@ We need to change every angular.json :
     }
   }
 }
+```
 
 # 6- Creating our Pwa 
 Follow this link : https://ionicframework.com/docs/angular/pwa for every project (DO NOT DEPLOY TO FIREBASE)
