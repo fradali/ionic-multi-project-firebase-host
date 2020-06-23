@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "test-ionic-775b2"
+  },
+  "targets": {
+    "test-ionic-775b2": {
+      "hosting": {
+        "appOne": [
+          "test-ionic-775b2"
+        ],
+        "appTwo": [
+          "app-two-tabs"
+        ]
+      }
+    }
+  }
+}

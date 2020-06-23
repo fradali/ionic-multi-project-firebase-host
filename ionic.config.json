@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "appOne": {
+      "name": "appOne",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects\\appOne"
+    },
+    "appTwo": {
+      "name": "appTwo",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects\\appTwo"
+    }
+  }
+}
