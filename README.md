@@ -2,16 +2,23 @@
 
 # 1- Create a workspace
 
+```
 ng new yourOwndirectory --createApplication=false
+```
+
+```
 cd ./yourOwndirectory
- 
+```
 # 2- Create our projects directory
 
+```
 mkdir projects
+```
 
 # 3- Add ionic.config.json to root Project
 
  fill it with : 
+
  ```
 {
   "projects": {}
@@ -20,9 +27,11 @@ mkdir projects
   
 # 4- Create two ionic projects
 
+```
 cd ./projects
 ionic start appOne blank
 ionic start appTwo tabs
+```
 
 # 5- Avoid Configuration problems 
 
@@ -37,7 +46,7 @@ We need to change every angular.json :
   -- replace every app: by your name  which should be another 12 occurrences in the whole file.
 
   A final look at the root ionic.config.json shows that the apps were added:
-  
+
  ```
 {
   "projects": {
@@ -67,16 +76,27 @@ Follow this link : https://ionicframework.com/docs/angular/pwa for every project
  3. run this cmd : firebase init hosting
  4. Now we just need to update the firebase.json hosting config. Each site has a target that points to the public deployable code in the www folder. ( Array of hosting object : duplicate the example in this url https://ionicframework.com/docs/angular/pwa#firebase and set a target for each application)
  5. Define Hosting Targets : 
- For this just run this cmd : firebase target:apply hosting 'appName' 'Name in firebase' (run it X times for X project)
+ For this just run this cmd :
+
+```
+ firebase target:apply hosting 'appName' 'Name in firebase' 
+```
+ 
+  (run it X times for X project)
 
 # Firebase Deployment
 
 Our configuration is complete. We can deploy all sites together with:
 
+```
 firebase deploy --only hosting
+```
+
 Or deploy a single site based on the target name:
 
+```
 firebase serve --only hosting:appOne
+```
 
 # More infos && useful links
 
