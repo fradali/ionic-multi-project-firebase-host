@@ -71,9 +71,17 @@ Follow this link : https://ionicframework.com/docs/angular/pwa for every project
 
 # 7- Multi hosting Firebase
 
- 1. install firebse tools : npm install -g firebase-tools
- 2. cd root project
- 3. run this cmd : firebase init hosting
+ 1. install firebse tools :
+ 
+```
+  npm install -g firebase-tools
+ ```
+2. cd root project
+3. run this cmd :
+
+```
+ firebase init hosting
+ ```
  4. Now we just need to update the firebase.json hosting config. Each site has a target that points to the public deployable code in the www folder. ( Array of hosting object : duplicate the example in this url https://ionicframework.com/docs/angular/pwa#firebase and set a target for each application)
  5. Define Hosting Targets : 
  For this just run this cmd :
